@@ -1,7 +1,7 @@
 # Dyanmic-Duo
 
 ```
-..X
+X.X
 OX.
 O..
 ```
