@@ -10,8 +10,7 @@ The objective of our project is to construct a front-end system for visualizing 
 Our deliverable would be a front-end system for visualizing opinion dynamics. It takes in the following inputs:
 - A network (Can also be simulated given the # of nodes + Initial conditions *)
 - A model (Each may come with some customized arguments) 
-- Threshold Model, Voter Model, or Bounded-Confidence Model
-	- BCM might be tricky here considering its continuous nature 
+	- Threshold Model, Voter Model, or Bounded-Confidence Model
 - A starting time point (by default 0)
 - An ending time point (T) 
 - Number of steps (n)
