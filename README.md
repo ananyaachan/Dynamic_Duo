@@ -1,12 +1,11 @@
-# Dyanmic-Duo
+# Project Proposal by Dynamic-Duo
 
-##Project Proposal 
 
-###I. Abstract
+### I. Abstract
 
 The objective of our project is to construct a front-end system for visualizing opinion dynamics. The system would be built upon existing packages such as networkx and plotly. 
 
-###II. Deliverables
+### II. Deliverables
 
 Our deliverable would be a front-end system for visualizing opinion dynamics. It takes in the following inputs:
 - A network (Can also be simulated given the # of nodes + Initial conditions *)
@@ -29,11 +28,11 @@ A 100% successful project should include all the features without asterisks.
 
 A 70% successful project should still include the animated plot of how the network evolved over time. It’s may have certain problems for certain model.
 
-###III. Resources Required
+### III. Resources Required
 
 We would not need a dataset because our system should be able to take in user-inputted networks. We do, however, need to build a medium through which the users can interact with our system. 
 
-###IV. Tools/Skills Required
+### IV. Tools/Skills Required
 
 Packages that we’ll need include networkx, plotly, and matplotlib.animation. 
 
