@@ -47,3 +47,16 @@ Secondly, if we want to show how opinion dynamics change over a long time period
 ### VI. Ethics
 
 Our project builds visualizations based on prior opinion dynamics models built in the field of sociophysics. These visualizations could be a victim of the ethical issues already present in the models we use. For example, different cultures have different ways of forming opinions i.e. some cultures take the opinions of elders more seriously than others, and this affects the weightage of opinions and hence the opinion flow. We need to ensure that we do enough research to check that the models of opinion dynamics we chose are the most unbiased towards diverse cultures. Furthermore, the use of the opinion dynamics visualizations can be far and wide, especially in terms of social media. Social media platforms want their usage to be high so they show more content agreeing with the user’s opinions, which then leads to confirmation bias. A person’s opinions in social media are reinforced which often leads to polarization of populations. However, in our project, since the published article will be aimed towards scientifically motivated school students, it is unlikely for this to result in the large-scale manipulation power that social media’s use of opinion dynamics holds. Additionally, the changes in opinions could be much slower when there is existing bias. We must check if the models we use are inclusive of diverse topics subject to bias such as racism or sexism. Lastly, the kind of data that will eventually be used in real-life scenarios to model our visualizations raises ethical concerns about the access to personal and sensitive information about people and the relationships they share with their social group. Hence, we need to ensure that the data we use to test our model has been taken with permission of the social group in consideration. Overall, most of these ethical concerns can be addressed by thorough research on the models used to create the visualizations and lending some of our focus to increase the awareness of the wide use of opinion dynamics models for manipulation through social media.
+
+### VII. Tentative Timeline
+
+Two weeks: 
+- Familiarize with networkx, plotly, and matplotlib.animation
+- Fully functioning basic input and output system
+- Build a well-designed snapshot for each time point 
+Four weeks:
+- Build an animated plot that collects the snapshots from time 0 to time T 
+- Account for different updating methods of different models
+Six weeks:
+- Move the system to a website/application through which user can interact with the system 
+- Add user-friendly features like the “drag and build” bar and the zoom-in function 
