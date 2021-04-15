@@ -54,9 +54,11 @@ Two weeks:
 - Familiarize with networkx, plotly, and matplotlib.animation
 - Fully functioning basic input and output system
 - Build a well-designed snapshot for each time point 
+
 Four weeks:
 - Build an animated plot that collects the snapshots from time 0 to time T 
 - Account for different updating methods of different models
+
 Six weeks:
 - Move the system to a website/application through which user can interact with the system 
 - Add user-friendly features like the “drag and build” bar and the zoom-in function 
