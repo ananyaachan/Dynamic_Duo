@@ -48,7 +48,18 @@ A) The threshold model
             -> node is put into to group 1 
 - Assumption: once you go to group 1, you never go back
 
+B) The voter model
 
+Q-voter model using async edge-based updates.
+
+- Each node gets randomly assigned either to Group 0 or Group 1
+- Assume there’s a probability p of rewiring and 1-p of changing opinion
+- For each update:
+    - Randomly select an edge
+    - If the two nodes connected by the edge are discordant
+        - For one node at an end we choose a random number r from the uniform distribution U(0, 1)
+        - if r < p, then that node rewires (the edge is rewired) to a random node
+        - else, it adopts the opinion of the node at the other end of the edge
 
 
 After we understood what happens at every update for each model, we wrote the code to update the network for each epoch. However, we still had to figure out how to represent the updates in only one figure, instead of a figure after each update, so that it is easier to visualize the changes the network goes through. We first used gifs to represent how the network changed overtime, however this way did not incorporate the interactive features of our Bokeh plots. Hence, we worked with widges, using ipywidgets library, in order to preserve the features while showing the changes to a network over time.
