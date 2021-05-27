@@ -36,8 +36,14 @@ In order to implement these models, we first researched and understood what each
 All the numerical parameters in mentioned below are between 0 and 1 unless otherwise stated. 
 
 ### The Threshold Model
-
-In the threshold model, we update each node's opinion based on the opinions of its neighbour nodes. The user can choose a `threshold` level, and whether to use `synchronous` or `asynchronous` update. For each individual node, we compute the percentage of its neighbour nodes that have the opposite opinion, denote the percentage as `diff_ratio`. If `diff_ratio` is greater than `threshold`, we then change the opinion of that node to the opposite value (0 to 1; 1 to 0). If the updating method is `synchronous`, then the change to each node's opinion in a certain round will be reflected at once after that round. Otherwise, if the updating method is `asynchronous`, then the changeto each node's opinion will be updated one by one, ordered by the index of that node.
+- We considered two groups of opinions: Group 0, Group 1
+- Each node gets assigned either to Group 0 or Group 1
+- We set a threshold value, any decimal between 0 and 1 (for demonstration we set this as 0.6)
+- For each update/epoch:
+    - For each node:
+        - if ratio of infected (Group 1) neighbors > threshold value
+            -> node is put into to group 1 
+- Assumption: once you go to group 1, you never go back
 
 ### The Voter Model
 
