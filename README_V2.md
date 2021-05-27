@@ -9,25 +9,19 @@ Numpy, Pandas, Random, NetworkX, Bokeh, Ipywidgets
 1. Creating Pseudo-Data 
 
 Our end product takes in user-inputted datasets. For demonstration purposes, we created the following sample data: 
-- A `nodes` dataframe consisted of 40 nodes, each with a randomly assigned opinion that's either 0 or 1;  
-- An `edges` dataframe consisted of 100 edges, with randomly selected starting and ending nodes.
-- A `nodes2` dataframe consisted of 40 nodes, each with a randomly assigned opinion that's a 2-digit decimal between 0 and 1;  
+- A `nodes` dataframe consisted of 40 nodes, each with a randomly assigned discrete opinion;  
+- An `edges` dataframe consisted of 100 edges, with randomly selected starting and ending nodes;
+- A `nodes2` dataframe consisted of 40 nodes, each with a randomly assigned continuous opinion.  
 
 2. Creating Network
 
-We wrote a `make_network` function that creates a network based on the given nodes and edges dataframe. The resulting network contains four attributes:
-- opinion 
-- degree 
-- size 
-- edge color
+We wrote a `make_network` function that creates a network based on the given nodes and edges dataframe. The resulting network contains three node attributes: opinion, degree, size and one node attribute: edge_color.
 
-3. Implementation in Bokeh (Maybe combine 3 and 4 together?)
 
-We plotted the network in Bokeh, which is a visualization package that comes with a bunch of interactive tools. In our plot, the node color reflects the opinion of the node; the size reflects the degree of the node, which is one way of interpreting connectivity; and finally the edge color reflects whether the neighboring nodes are in discordant opinions. 
+3. Plotting with Bokeh 
 
-4. Plot function 
-
-Here we wrote a `make_plot` function that automates the plotting process. If `continuous = True`, a histogram of the opinion distribution at the current time will be included on the right hand side. Otherwise, if the model is discrete, a line plot of the opinion history up till the current time will be included on the right hand side to represent the percent change in opinion over time for each opinion (0 and 1).
+Here we wrote a `make_plot` function that automates the plotting process. The function takes in 3-7 arguments, some of which are optional depending on the value of `continuous`. 
+It returns a combined plot of 1) a network plot at the current time t and 2) a line plot of opinion history up till the time t if the `continuous == False` and otherwise a histogram of the opinion distribution at time t. 
 
 5. Update function 
 
@@ -36,7 +30,7 @@ After we figured out how to visualize a given network, we had to update the netw
 - Voter model
 - Bounded-confidence model
 
-In order to implement these models, we first researched and understood what each model means in the realm of opinion dynamics, and how we can implement this through code. The threshold and voter models are discrete models, i.e. the opinions are in discrete values - so a node (analogous to a person in a social network) has either one opinion or the other. Our discrete models only accounted for 2 kinds of opinions, labelled as 0 and 1. The bounded-confidence model however is a continuous model, which means that the opinions of the nodes are labelled as a decimal between 0 and 1.
+In order to implement these models, we first researched and understood what each model means in the realm of opinion dynamics, and how we can implement this through code. The threshold and voter models are discrete models, i.e. the opinions are in discrete values - so a node (analogous to a person in a social network) has either one opinion or the other. Our discrete models only accounted for 2 kinds of opinions, labelled as 0 and 1. The bounded-confidence model however is a continuous model, which means that the opinions of the nodes are labelled as a two-digit decimal between 0 and 1.
 
 A) The threshold model
 - We considered two groups of opinions: Group 0, Group 1
