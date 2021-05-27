@@ -23,7 +23,7 @@ We wrote a `make_network` function that creates a network based on the given nod
 Here we wrote a `make_plot` function that automates the plotting process. The function takes in 3-7 arguments, some of which are optional depending on the value of `continuous`. 
 It returns a combined plot of 1) a network plot at the current time t and 2) a line plot of opinion history up till the time t if the `continuous == False` and otherwise a histogram of the opinion distribution at time t. 
 
-## Update function 
+## Implementing Update Methods 
 
 After we figured out how to visualize a given network, we had to update the network based on existing opinion dynamics models. Our visualization program can update our network based on three kinds of opinion dynamics models:
 - Threshold model
@@ -75,7 +75,7 @@ We created a widget in order for a user to be able to input their nodes and edge
 ### The Main Visualization Interface 
 After the user supplies our program with a correctly formatted dataset, he/she can now access the main visualization interface. First, the user needs to select whether the opinions are continuous. If true, only the Bounded-Confidence Model can be used; otherwise the user can choose between Threshold or Voter Model. Each model comes with several unique parameters that the user can then specify. All three models come with a time slider through which the user can view the plot at various time stamps. 
 
-####WARNINGS 
+*WARNINGS:* 
 1. The plot will NOT reflect the change in parameters until the user drag the time slider.
 2. Sometimes there will be a small lag, but it shouldn't take more than a few seconds. If somehow the plot is stuck, try dragging the time slider or rerun the cells above. 
 3. If the user made the wrong selection regarding the continuity of opinions, the visualization will still be displayed but no meaningful conclusions can be drawn. 
