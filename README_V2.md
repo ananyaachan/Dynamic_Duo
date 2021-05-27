@@ -38,6 +38,19 @@ After we figured out how to visualize a given network, we had to update the netw
 
 In order to implement these models, we first researched and understood what each model means in the realm of opinion dynamics, and how we can implement this through code. The threshold and voter models are discrete models, i.e. the opinions are in discrete values - so a node (analogous to a person in a social network) has either one opinion or the other. Our discrete models only accounted for 2 kinds of opinions, labelled as 0 and 1. The bounded-confidence model however is a continuous model, which means that the opinions of the nodes are labelled as a decimal between 0 and 1.
 
+A) The threshold model
+- We considered two groups of opinions: Group 0, Group 1
+- Each node gets assigned either to Group 0 or Group 1
+- We set a threshold value of 0.6 (threshold value can be a decimal between 0 and 1)
+- For each update/epoch:
+    - For each node:
+        - if ratio of infected (Group 1) neighbors > threshold value
+            -> node is put into to group 1 
+- Assumption: once you go to group 1, you never go back
+
+
+
+
 After we understood what happens at every update for each model, we wrote the code to update the network for each epoch. However, we still had to figure out how to represent the updates in only one figure, instead of a figure after each update, so that it is easier to visualize the changes the network goes through. We first used gifs to represent how the network changed overtime, however this way did not incorporate the interactive features of our Bokeh plots. Hence, we worked with widges, using ipywidgets library, in order to preserve the features while showing the changes to a network over time.
 
 6. Adding widgets 
