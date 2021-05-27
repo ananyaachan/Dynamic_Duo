@@ -41,7 +41,7 @@ In order to implement these models, we first researched and understood what each
 A) The threshold model
 - We considered two groups of opinions: Group 0, Group 1
 - Each node gets assigned either to Group 0 or Group 1
-- We set a threshold value of 0.6 (threshold value can be a decimal between 0 and 1)
+- We set a threshold value, any decimal between 0 and 1 (for demonstration we set this as 0.6)
 - For each update/epoch:
     - For each node:
         - if ratio of infected (Group 1) neighbors > threshold value
