@@ -61,9 +61,13 @@ Q-voter model using async edge-based updates.
         - if r < p, then that node rewires (the edge is rewired) to a random node
         - else, it adopts the opinion of the node at the other end of the edge
 
+C) The bounded-confidence model
+
+
+
 
 After we understood what happens at every update for each model, we wrote the code to update the network for each epoch. However, we still had to figure out how to represent the updates in only one figure, instead of a figure after each update, so that it is easier to visualize the changes the network goes through. We first used gifs to represent how the network changed overtime, however this way did not incorporate the interactive features of our Bokeh plots. Hence, we worked with widges, using ipywidgets library, in order to preserve the features while showing the changes to a network over time.
 
 6. Adding widgets 
 
-
+We created a widget in order for a user to be able to input their nodes and edges dataframes. We found that we could do this using ipywidgets.FileUpload, and the user could directly upload a csv file for their nodes and edges. After this, we run checks (using assert) to ensure that the dataframe is formatted correctly. This enables the users to play around with the visualization program with their own data for networks.
