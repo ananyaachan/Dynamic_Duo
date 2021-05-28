@@ -3,7 +3,7 @@
 """
 Created on Fri May 28 02:53:58 2021
 
-@author: Ananya
+@author: Andy, Ananya, Tiana
 """
 import networkx as nx
 

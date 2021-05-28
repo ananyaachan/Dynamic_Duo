@@ -3,15 +3,16 @@
 """
 Created on Fri May 28 02:56:21 2021
 
-@author: Ananya
+@author: Andy, Ananya, Tiana
 """
 import network
 import numpy as np
 from bokeh.io import output_file, show, output_notebook
 from bokeh.models import (BoxSelectTool, BoxZoomTool, ResetTool, Circle, EdgesAndLinkedNodes, HoverTool,
                           MultiLine, NodesAndLinkedEdges, Plot, Range1d, TapTool,)
-#from bokeh.plotting import from_networkx
-from bokeh.models.graphs import from_networkx
+from bokeh.plotting import from_networkx
+#replace above line with comment below if it gives you an error
+#from bokeh.models.graphs import from_networkx
 from bokeh.models import StaticLayoutProvider
 from bokeh.transform import linear_cmap
 from bokeh.plotting import figure, show
