@@ -1,10 +1,20 @@
 # Instruction 
 
-For our project, we constructed an interactive visualization program to visualize how a given network changes over time. Our entire project, including the interactive interface, is carried out on Jupyter Notebook. 
+For our project, we constructed an interactive visualization program to visualize how a given network changes over time. To see the clean version of our final product, with all
+functions imported as modules, please go to `Opinion Dynamics Program.ipynb`. To see the details of how we get to our final product, please go to `od_newest.ipynb`
 
-## Packages Required
+The clean version of our project consists of five modules:
+- `pseudodata.py`: creates the sample datasets (`nodes`, `edges`, `nodes2`)
+- `network.py`: contains the `make_network` function 
+- `update_viz.py`: contains the `make_plot` and `update` function
+ 
+	- Depends on your version of Bokeh, you might encounter an error when the program gets to `from bokeh.plotting import from_networkx`, in which case simply replace the command with  `from bokeh.models.graphs import from_networkx`
+	
+- `upload_data.py`: creates an uploading interface and checks if the the data provided by the user is correctly formatted
+- `visualize.py`: creates the main visualization interface that allows the user to customize parameters and view the network at various time stamps. 
 
-Numpy, Pandas, Random, NetworkX, Bokeh, Ipywidgets
+If you'd like to learn more about the functions mentioned above or about our work process in general, we included a brief summary below. 
+
 
 ## Creating Pseudo-Data 
 
@@ -73,6 +83,9 @@ After the user supplies our program with a correctly formatted dataset, he/she c
 1. The plot will NOT reflect the change in parameters until the user drag the time slider.
 2. Sometimes there will be a small lag, but it shouldn't take more than a few seconds. If somehow the plot is stuck, try dragging the time slider or rerun the cells above. 
 3. If the user made the wrong selection regarding the continuity of opinions, the visualization will still be displayed but no meaningful conclusions can be drawn. 
+
+
+## Troubleshoot 
 
 
 
