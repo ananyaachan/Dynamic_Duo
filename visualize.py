@@ -3,7 +3,7 @@
 """
 Created on Fri May 28 03:05:59 2021
 
-@author: Ananya
+@author: Andy, Ananya, Tiana
 """
 import update_viz
 from update_viz import update
