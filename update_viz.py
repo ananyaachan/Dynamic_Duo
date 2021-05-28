@@ -3,7 +3,7 @@
 """
 Created on Fri May 28 02:56:21 2021
 
-@author: Ananya
+@author: Andy, Ananya, Tiana
 """
 import network
 import numpy as np
