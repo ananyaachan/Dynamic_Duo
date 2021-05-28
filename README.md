@@ -1,7 +1,7 @@
 # Instruction 
 
 For our project, we constructed an interactive visualization program to visualize how a given network changes over time. To see the clean version of our final product, with all
-functions imported as modules, please go to `Opinion Dynamics Program.ipynb`. To see the details of how we get to our final product, please go to `od_newest.ipynb`
+functions imported as modules, please go to `Opinion Dynamics Program.ipynb`. To see the details of how we get to our final product, please go to `od_with_explanation.ipynb`
 
 The clean version of our project consists of five modules:
 - `pseudodata.py`: creates the sample datasets (`nodes`, `edges`, `nodes2`)
@@ -13,7 +13,7 @@ The clean version of our project consists of five modules:
 - `upload_data.py`: creates an uploading interface and checks if the the data provided by the user is correctly formatted
 - `visualize.py`: creates the main visualization interface that allows the user to customize parameters and view the network at various time stamps. 
 
-If you'd like to learn more about the functions mentioned above or about our work process in general, we included a brief summary below. 
+To run the program, clone the github repository Dynamic_Duo into your local device and run `Opinion Dynamics Program.ipynb`. If you'd like to learn more about the functions mentioned above or about our work process in general, we included a brief summary below. 
 
 
 ## Creating Pseudo-Data 
