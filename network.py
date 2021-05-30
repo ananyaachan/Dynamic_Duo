@@ -20,18 +20,12 @@ def set_opinion_attrs(G, nodes):
     
 def set_degree_attrs(G):
     '''
-    Sets the degree and size attribute of a network G 
+    Sets the degree attribute of a network G 
     '''
     #get the degree dictionary from G
     degree_dict = dict(G.degree(G.nodes()))
-
-    #create a size attribute that's proportional to the degree 
-    size_dict = {}    
-    for key, value in degree_dict.items():
-        size_dict[key] = 5*value 
     
-    #set the attributes 
-    nx.set_node_attributes(G, size_dict, 'size')
+    #set the attributes
     nx.set_node_attributes(G, degree_dict, 'degree')
     
 def set_color_attrs(G):

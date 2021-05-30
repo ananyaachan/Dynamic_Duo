@@ -37,7 +37,6 @@ def set_network(nodes_df, edges_df):
 thres_val = 0.5 # Threshold using in the model
 sync_val = False # Synchronous update 
 d_thres = {} # Dictionary for threshold model plots
-global fixed_layout
 fixed_layout = nx.spring_layout # initialize fixed_layout as spring_layout 
 
 # Bounded-confidence model parameters
@@ -50,6 +49,11 @@ p_val = 0.4 # probability below which the node will rewire
 rts_val = False # rewire_to_same value 
 d_v = {} # Dictionary for voter model plots
 
+# a helper function to update network layout 
+def set_layout(layout):
+	global fixed_layout 
+	fixed_layout = layout 
+	
 
 # Define interactive functions
 def display_timestamps_threshold(t):

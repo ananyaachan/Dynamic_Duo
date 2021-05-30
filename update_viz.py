@@ -19,7 +19,7 @@ from bokeh.plotting import figure, show
 from bokeh.layouts import row
 import random
 import networkx as nx
-import visualize 
+import visualize
 
 def set_nodes(nodes_df):
     global nodes
@@ -56,7 +56,7 @@ def make_plot(G, layout, t, epochs, history1 = [], history0 = [], bins_number = 
     graph_renderer = from_networkx(G, layout, scale=1, center=(0, 0))
 
     #let the node color reflect the opinion and edge color reflect the discordancy between neighbors  
-    graph_renderer.node_renderer.glyph = Circle(size="size", fill_color=linear_cmap('opinion', 'Blues8', nodes['opinion'].min(), nodes['opinion'].max()))
+    graph_renderer.node_renderer.glyph = Circle(size = 20, fill_color=linear_cmap('opinion', 'Blues8', nodes['opinion'].min(), nodes['opinion'].max()))
     graph_renderer.edge_renderer.glyph = MultiLine(line_color = "edge_color", line_dash = "dashed", line_alpha=0.8, line_width=1)
 
     #change hovered nodes' colors
@@ -93,11 +93,10 @@ def make_plot(G, layout, t, epochs, history1 = [], history0 = [], bins_number = 
                       title = 'Distribution of opinions')
         fig2.quad(top=hist, bottom=0, left=edges[:-1], right=edges[1:], line_color="white")
         
-    #if it's the very first plot, we'll update the global variable fixed_layout 
+    #if it's the very first plot, we'll update the layout in the visualize module 
     #this is so that all the plots after this will have the same layout 
     if layout == nx.spring_layout: 
-        global fixed_layout
-        fixed_layout = graph_renderer.layout_provider.graph_layout
+    	visualize.set_layout(graph_renderer.layout_provider.graph_layout)
         
     return row(fig1, fig2) #return combined plot
 
@@ -123,9 +122,7 @@ def update(G, model, history1, history0, epochs = 5, threshold = 0.6, synchronou
     plot_list = []
     layout = nx.spring_layout
     graph_renderer = from_networkx(G, layout, scale=1, center=(0, 0))
-    global fixed_layout
-    fixed_layout = graph_renderer.layout_provider.graph_layout
-    plot_0 = make_plot(G, fixed_layout, 0, epochs, history1, history0)
+    plot_0 = make_plot(G, visualize.fixed_layout, 0, epochs, history1, history0)
     plot_list.append(plot_0)
   
     if model == "threshold":
@@ -147,7 +144,7 @@ def update(G, model, history1, history0, epochs = 5, threshold = 0.6, synchronou
                         #change node n's opinion to the opposite side
                         G.nodes[n]['opinion'] = 0 if node_opinion == 1 else 1  
                 network.set_color_attrs(G)
-                plot_i = make_plot(G, fixed_layout, i, epochs, history1, history0) #creates a plot for this round of update
+                plot_i = make_plot(G, visualize.fixed_layout, i, epochs, history1, history0) #creates a plot for this round of update
                 plot_list.append(plot_i)
         else:
             #synchronous update
@@ -170,7 +167,7 @@ def update(G, model, history1, history0, epochs = 5, threshold = 0.6, synchronou
                         #change node n's opinion to the opposite side
                         G.nodes[n]['opinion'] = 0 if node_opinion == 1 else 1  
                 network.set_color_attrs(G)
-                plot_s_i = make_plot(G,fixed_layout, i, epochs, history1, history0)
+                plot_s_i = make_plot(G,visualize.fixed_layout, i, epochs, history1, history0)
                 plot_list.append(plot_s_i)
     
     elif model == "voter":
@@ -196,7 +193,7 @@ def update(G, model, history1, history0, epochs = 5, threshold = 0.6, synchronou
                     # the node opinion is updated
                     G.nodes[start_ind]['opinion'] = G.nodes[end_ind]['opinion']                      
             network.set_color_attrs(G)
-            plot_v_i = make_plot(G, fixed_layout, i, epochs, history1, history0)
+            plot_v_i = make_plot(G, visualize.fixed_layout, i, epochs, history1, history0)
             plot_list.append(plot_v_i) #creates a plot for this round of update
 
     elif model == "bounded-confidence":
@@ -207,7 +204,7 @@ def update(G, model, history1, history0, epochs = 5, threshold = 0.6, synchronou
             if np.absolute(delta) <= c: #update the opinion iff the difference is less than the compromise threshold 
                 G.nodes[start_ind]['opinion'] += m*delta 
                 G.nodes[end_ind]['opinion'] -= m*delta
-            plot_bc_i = make_plot(G, fixed_layout, i, epochs, bins_number = 8, continuous = True) #make the plot at current time point and append it to the plot list 
+            plot_bc_i = make_plot(G, visualize.fixed_layout, i, epochs, bins_number = 8, continuous = True) #make the plot at current time point and append it to the plot list 
             plot_list.append(plot_bc_i)
             
     return plot_list
