@@ -95,7 +95,10 @@ def choose_epochs(e):
     time_slider_threshold.max = e
     time_slider_voter.max = e
     time_slider_bounded_confidence.max = e
-
+    play1.max = e
+    play2.max = e
+    play3.max = e
+    
 # Update thres_val
 def change_thres(thres):
     global thres_val 
@@ -131,7 +134,10 @@ def display_cont(continuous):
     if continuous == 1: #if true only bounded-confidence method can be used 
         widgets.interact(change_c, c=c_slider)
         widgets.interact(change_m, m=m_slider)
+        display(play3)
         widgets.interact(display_timestamps_bounded_confidence, t=time_slider_bounded_confidence)
+        #time_slider_bounded_confidence)
+
     elif continuous == 0: #else the user will be prompted to choose threshold or voter 
         widgets.interact(display_dropdown, model = model_dropdown) 
         
@@ -145,11 +151,13 @@ def display_dropdown(model):
     if model == 0:
         widgets.interact(change_thres, thres=threshold_slider)
         widgets.interact(change_sync, s=sync_checkbox)
+        display(play1)
         widgets.interact(display_timestamps_threshold, t=time_slider_threshold)
     # If the user chooses voter's model
     elif model == 1:
         widgets.interact(change_p, p=p_slider)
         widgets.interact(change_rewire, r=rewire_checkbox)
+        display(play2)
         widgets.interact(display_timestamps_voter, t=time_slider_voter)
     else: 
         print("Select Model")
@@ -293,6 +301,44 @@ time_slider_voter = widgets.IntSlider(
     readout=True,
     readout_format='d'
 )
+
+# automatic play button for threshold model
+play1 = widgets.Play(
+    value=0,
+    min=0,
+    max=epochs,
+    step=1,
+    interval=1000,
+    description="Press play",
+    disabled=False
+)
+
+# automatic play button for voter model
+play2 = widgets.Play(
+    value=0,
+    min=0,
+    max=epochs,
+    step=1,
+    interval=1000,
+    description="Press play",
+    disabled=False
+)
+
+# automatic play button for bounded-confidence model
+play3 = widgets.Play(
+    value=0,
+    min=0,
+    max=epochs,
+    step=1,
+    interval=1000,
+    description="Press play",
+    disabled=False
+)
+
+# JSlink the play button to time sliders
+widgets.jslink((play1, 'value'), (time_slider_threshold, 'value'))
+widgets.jslink((play2, 'value'), (time_slider_voter, 'value'))
+widgets.jslink((play3, 'value'), (time_slider_bounded_confidence, 'value'))
 
 def interact():
     # Show the output
