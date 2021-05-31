@@ -64,6 +64,11 @@ def make_plot(G, layout, t, epochs, history1 = [], history0 = [], bins_number = 
 
     #append graph_renderer to figure 1
     fig1.renderers.append(graph_renderer)
+    
+    #correcting format 
+    fig1.xgrid.visible = False #remove horizontal gridlines
+    fig1.ygrid.visible = False #remove vertical gridlines 
+    fig1.axis.visible = False #remove axes 
 
     if continuous == False: #if the model is discrete, add a line plot on the right hand side 
         fig2 = figure(plot_width=480, plot_height=480, #initialize the line plot 
