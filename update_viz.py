@@ -96,7 +96,7 @@ def make_plot(G, layout, t, epochs, history1 = [], history0 = [], bins_number = 
     #if it's the very first plot, we'll update the layout in the visualize module 
     #this is so that all the plots after this will have the same layout 
     if layout == nx.spring_layout: 
-    	visualize.set_layout(graph_renderer.layout_provider.graph_layout)
+        visualize.set_layout(graph_renderer.layout_provider.graph_layout)
         
     return row(fig1, fig2) #return combined plot
 
