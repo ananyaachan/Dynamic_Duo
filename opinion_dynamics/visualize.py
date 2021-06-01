@@ -5,11 +5,11 @@ Created on Fri May 28 03:05:59 2021
 
 @author: Andy, Ananya, Tiana
 """
-import update_viz
-from update_viz import update
+from . import update_viz
+from .update_viz import update
 from IPython.display import display
 import ipywidgets as widgets
-import network
+from . import network
 import networkx as nx
 
 epochs = 200

@@ -5,7 +5,7 @@ Created on Fri May 28 02:56:21 2021
 
 @author: Andy, Ananya, Tiana
 """
-import network
+from . import network
 import numpy as np
 from bokeh.io import output_file, show, output_notebook
 from bokeh.models import (BoxSelectTool, BoxZoomTool, ResetTool, Circle, EdgesAndLinkedNodes, HoverTool,
@@ -19,7 +19,7 @@ from bokeh.plotting import figure, show
 from bokeh.layouts import row
 import random
 import networkx as nx
-import visualize
+from . import visualize
 
 def set_nodes(nodes_df):
     global nodes
