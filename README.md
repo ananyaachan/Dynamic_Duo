@@ -13,7 +13,9 @@ The clean version of our project consists of five modules:
 - `upload_data.py`: creates an uploading interface and checks if the the data provided by the user is correctly formatted
 - `visualize.py`: creates the main visualization interface that allows the user to customize parameters and view the network at various time stamps. 
 
-To run the program, clone the github repository Dynamic_Duo into your local device and run `Opinion Dynamics Program.ipynb`. If you'd like to learn more about the functions mentioned above or about our work process in general, we included a brief summary below. 
+To run the program, clone the github repository Dynamic_Duo into your local device and run `Opinion Dynamics Program.ipynb`. Please use `nodes.csv` to test discrete models and `nodes2.csv` to test continuous models. 
+
+If you'd like to learn more about the functions mentioned above or about our work process in general, we included a brief summary below. 
 
 
 ## Creating Pseudo-Data 
